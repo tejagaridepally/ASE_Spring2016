@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "H:\\LoginApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_login.xml",
+        "source": "H:\\LoginApp\\app\\src\\main\\res\\menu\\menu_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Teja\\Desktop\\Android\\LoginApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_login.xml",
+        "source": "C:\\Users\\Teja\\Desktop\\Android\\LoginApp\\app\\src\\main\\res\\menu\\menu_login.xml"
+    },
+    {
+        "merged": "D:\\LoginApp\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_login.xml",
+        "source": "D:\\LoginApp\\app\\src\\main\\res\\menu\\menu_login.xml"
+    },
+    {
+        "merged": "H:\\Weather Application\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_login.xml",
+        "source": "H:\\Weather Application\\app\\src\\main\\res\\menu\\menu_login.xml"
+    }
+]
