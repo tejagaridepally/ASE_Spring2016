@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SignUp Application</string>
+    <string name="title_activity_photo">PhotoActivity</string>
+    <string name="title_activity_map_actvity">MapActvity</string>
+</resources>
