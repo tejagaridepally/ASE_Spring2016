@@ -1,0 +1,43 @@
+var radioOne = document.getElementById('radioOne');
+var radioTwo = document.getElementById('radioTwo');
+var uname = document.getElementById('uname');
+var email = document.getElementById('email');
+var pwd = document.getElementById('pwd');
+var male = document.getElementById('male');
+var female = document.getElementById('female');
+
+
+function store()
+{
+localStorage.setItem('radioOne',radioOne.value);
+localStorage.setItem('radioTwo',radioTwo.value);
+localStorage.setItem('uname',uname.value);
+localStorage.setItem('email',email.value);
+localStorage.setItem('pwd',pwd.value);
+localStorage.setItem('male',male.value);
+localStorage.setItem('female',female.value);
+}
+
+
+function check()
+{
+
+var storedemail = localStorage.getItem('email');
+var storedpwd = localStorage.getItem('pwd');
+
+
+
+var emailid = document.getElementById('emailid');
+var password = document.getElementById('password');
+
+
+if(emailid.value == storedemail && password.value == storedPwd)
+ {
+        alert('You are logged in. as {{uname}}');
+    }
+else {
+
+alert('ERROR');
+        
+    }
+}
