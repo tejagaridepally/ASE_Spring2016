@@ -1,0 +1,168 @@
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app.css">
+
+  <style type="text/css">
+
+    .body{
+      position: absolute;
+      top: 10px;
+      left: 320px;
+      right: -40px;
+      bottom: -40px;
+      width: auto;
+      height: auto;
+      background-image: url(http://www.iminradio.com/wp-content/uploads/2014/09/gradient-black-to-white-square-wallpaper-1.png);
+      background-size: cover;
+      -webkit-filter: blur(0px);
+      z-index: 0;
+    }
+
+    input{
+      width: 250px;
+      height: 30px;
+      background: transparent;
+      border: 4px solid rgba(50,0,0,0.6);
+      border-radius: 1px;
+      color: #000000;
+      font-family: 'Exo', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 4px;
+    }
+
+
+    #wrap{
+      width:880px;
+      margin:10px auto;
+    }
+    p, form{
+      display:inline;
+    }
+    button{
+      width: 260px;
+      height: 35px;
+      background: #95680a;
+      border:  4px solid rgba(0, 0, 0, 0.78);
+      cursor: pointer;
+      border-radius: 2px;
+      color: #000000;
+      font-family: 'Exo', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 6px;
+      margin-top: 10px;
+    }
+    img{
+      width:60px;
+    }
+  </style>
+  <!--   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+     <script type="text/javascript">
+     $(document).ready(function(){
+       function foo(response) {
+        var data = response.data;
+        console.log(data);
+       }
+       console.log("ohmyladygaga");
+       var script = document.createElement('script');
+
+       $("#check").click(function(){
+           script.src = 'https://api.github.com/users?q=' + $("#selection").val() + ':' + $("#typing").val()+ '&sort='+ $("#sorting").val() + '&callback=foo&per_page=10';
+           console.log(script);
+       });
+
+       document.getElementsByTagName('head')[0].appendChild(script);
+     });
+     </script>-->
+
+</head>
+
+<body class="body">
+
+<div  ng-controller="View1Ctrl" style="top: 200px">
+  <div class="menu" id="div_SearchContainer">
+    <h1 align="absolute">Geek search </h1>
+    <p><b>Select</b>
+      <select id="selection">
+        <option value="location">Location</option>
+        <option value="language">Programming Language</option>
+      </select>
+      <br><br><br><p>
+    <b>Enter a key word to search</b>
+    <form>
+      <input id="typing" type="input" >
+    </form>
+    </p><br>
+  </div>
+  <button id="check" type="button">Check for results</button>
+  <div id="result"></div>
+</body>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+  var content;
+  // Using YQL and JSONP
+  $("#check").click(function(){
+    $("#result").empty();
+    $.ajax({
+      url: 'https://api.github.com/search/users?q=' + $("#selection").val() + ':' + $("#typing").val()+ '&sort='+ $("#sorting").val() + '&order=desc&callback=foo&per_page=172',
+
+      jsonp: "callback",
+
+      dataType: "jsonp",
+
+      data: {
+        format: "json"
+      },
+
+      success: function ( response ) {
+        var data = response.data;
+        console.log(data);
+        var value = data.items;
+        for(var i =0; i<value.length; i++){
+          content = '<a href=' +' " '+ value[i].html_url + ' ">' + '<img src=' + ' " '+ value[i].avatar_url + ' " ' + ' ' + 'alt=" ' + value[i].login + ' ">' + '</a>';
+
+          $("#result").append(content);
+          console.log("ok");
+        }
+      }
+    });
+  });
+  /*
+   var content;
+   function foo(response) {
+   var data = response.data;
+   var value = data.items;
+   console.log(script);
+   for(var i =0; i<value.length; i++){
+   content = '<a href=' +' " '+ value[i].html_url + ' ">' + '<img src=' + ' " '+ value[i].avatar_url + ' " ' + ' ' + 'alt=" ' + value[i].login + ' ">' + '</a>';
+   //if(content != undefined){
+   $("#result").append(content);
+   //console.log(content);
+   console.log("ok");
+   // }
+   }
+   }
+
+   var script = document.createElement('script');
+
+   $("#check").click(function(){
+   $("#result").innerHTML = "";
+   content = null;
+   script.src = "";
+   script.src = 'https://api.github.com/search/users?q=' + $("#selection").val() + ':' + $("#typing").val()+ '&sort='+ $("#sorting").val() + '&order=desc&callback=foo&per_page=172';
+   console.log(script);
+   });
+
+   document.getElementsByTagName('head')[0].appendChild(script);
+   */
+</script>
+
+</html>
