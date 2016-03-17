@@ -30,25 +30,26 @@ public class Hello {
 	
 	@GET
 	@Produces(MediaType.TEXT_HTML)
-	public String sayHTMLHello(@QueryParam("name") String name,@QueryParam("Card_No") String Card_No,@QueryParam("Amount") int Amount)
+	public String sayHTMLHello(@QueryParam("name") String name,@QueryParam("amount") int amount)
 	{
 		System.out.println("Name is "+name);
-		System.out.println("Amount:"+Amount);
+		System.out.println("Amount:"+amount);
 		
 		String retString;
 		
-		if(Amount > 10000)
+		if(amount < 100000)
 		{
 			
-			System.out.println("Amount is greater than 1 lakh");
-			retString = "Credit card amount is not approved ";
-		
+			System.out.println("Amount is less than 1 lakh");
+			retString = "Yes";
+			
 		}
 		
 		else
 		{
-			System.out.println("Amount is less than 1 lakh");
-			retString = "Credit card amount is approved ";
+			System.out.println("Amount is greater than 1 lakh");
+			retString = "No ";
+			
 		}
 		
 		//return "<html>" + "<title>" + "Credit card authorization " + name + "</title>" + "<body><h1>" + retString + "</body></h1>" + "</html>";

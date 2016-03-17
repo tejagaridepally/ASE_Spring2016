@@ -10,7 +10,7 @@ public class HelloTest {
 	String name = "Teja";
 	String Card_no = "123456";
 	 int amount = 10000000;
-	String s = hello.sayHTMLHello(name,Card_no,amount);
+	String s = hello.sayHTMLHello(name,amount);
 	String TestResult = "Credit card amount is approved ";
 	String s1 = hello.sayPlaintextHello();
 	String s2 = "Hello Jersey"; 
